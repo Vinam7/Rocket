@@ -66,9 +66,32 @@ int main()
     line(360,400,380,420);
     floodfill(365,410,DARKGRAY);
 
+     //body flames
+	    setcolor(14);
+	    setfillstyle(1, 14);
+	    circle(328, 338, 33);
+	    floodfill(328, 338, 14);
+	    circle(328, 375, 25);
+	    floodfill(328, 375, 14);
+	    circle(328, 405, 15);
+	    floodfill(328, 405, 14);
+	    //booster 1 flames
+	    circle(293, 325, 20);
+	    floodfill(293, 325, 14);
+	    circle(293, 350, 12);
+	    floodfill(293, 350, 14);
+	    circle(293, 365, 8);
+	    floodfill(293, 365, 14);
+	    //booster 2 flames
+	    circle(363, 325, 20);
+	    floodfill(363, 325, 14);
+	    circle(363, 350 , 12);
+	    floodfill(363, 350, 14);
+	    circle(363, 365, 8);
+	    floodfill(363, 365, 14);
+
     getch();
     closegraph();
 
     return 0;
 }
-
