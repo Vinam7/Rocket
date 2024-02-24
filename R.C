@@ -1,85 +1,84 @@
 #include <conio.h>
 #include <graphics.h>
 #include <stdio.h>
-#define TURBOC_GRAPHICS
 #define BGI "C:\\turboc3\\bgi"
 
 void drawRocket(int yOffset, float scaleFactor, int rotate) {
     setcolor(BLACK);
     setfillstyle(SOLID_FILL, WHITE);
-    rectangle(315, 95 - yOffset, 340, 295 - yOffset);
-    floodfill(320, 294 - yOffset, BLACK);
+    rectangle(315 * scaleFactor, (95 - yOffset) * scaleFactor, 340 * scaleFactor, (295 - yOffset) * scaleFactor);
+    floodfill(320 * scaleFactor, (294 - yOffset) * scaleFactor, BLACK);
 
     setfillstyle(SOLID_FILL, WHITE);
-    rectangle(295, 145 - yOffset, 315, 295 - yOffset);
-    floodfill(300, 294 - yOffset, BLACK);
+    rectangle(295 * scaleFactor, (145 - yOffset) * scaleFactor, 315 * scaleFactor, (295 - yOffset) * scaleFactor);
+    floodfill(300 * scaleFactor, (294 - yOffset) * scaleFactor, BLACK);
 
     setfillstyle(SOLID_FILL, WHITE);
-    rectangle(340, 145 - yOffset, 360, 295 - yOffset);
-    floodfill(350, 294 - yOffset, BLACK);
+    rectangle(340 * scaleFactor, (145 - yOffset) * scaleFactor, 360 * scaleFactor, (295 - yOffset) * scaleFactor);
+    floodfill(350 * scaleFactor, (294 - yOffset) * scaleFactor, BLACK);
 
     // Rocket Head
     setcolor(BLACK);
     setfillstyle(SOLID_FILL, WHITE);
-    ellipse(350, 145 - yOffset, 0, 180, 10 * scaleFactor, 10 * scaleFactor);
-    floodfill(350, 144 - yOffset, BLACK);
+    ellipse(350 * scaleFactor, (145 - yOffset) * scaleFactor, 0, 180, 10 * scaleFactor, 10 * scaleFactor);
+    floodfill(350 * scaleFactor, (144 - yOffset) * scaleFactor, BLACK);
 
     setfillstyle(SOLID_FILL, WHITE);
-    ellipse(305, 145 - yOffset, 0, 180, 10 * scaleFactor, 10 * scaleFactor);
-    floodfill(305, 144 - yOffset, BLACK);
+    ellipse(305 * scaleFactor, (145 - yOffset) * scaleFactor, 0, 180, 10 * scaleFactor, 10 * scaleFactor);
+    floodfill(305 * scaleFactor, (144 - yOffset) * scaleFactor, BLACK);
 
     setfillstyle(SOLID_FILL, WHITE);
-    ellipse(327, 95 - yOffset, 0, 180, 12 * scaleFactor, 12 * scaleFactor);
-    floodfill(327, 94 - yOffset, BLACK);
+    ellipse(327 * scaleFactor, (95 - yOffset) * scaleFactor, 0, 180, 12 * scaleFactor, 12 * scaleFactor);
+    floodfill(327 * scaleFactor, (94 - yOffset) * scaleFactor, BLACK);
 
     setcolor(WHITE);
-    line(341, 145 - yOffset, 359, 145 - yOffset);
-    line(296, 145 - yOffset, 314, 145 - yOffset);
-    line(316, 95 - yOffset, 339, 95 - yOffset);
+    line(341 * scaleFactor, (145 - yOffset) * scaleFactor, 359 * scaleFactor, (145 - yOffset) * scaleFactor);
+    line(296 * scaleFactor, (145 - yOffset) * scaleFactor, 314 * scaleFactor, (145 - yOffset) * scaleFactor);
+    line(316 * scaleFactor, (95 - yOffset) * scaleFactor, 339 * scaleFactor, (95 - yOffset) * scaleFactor);
 
     // Rocket tail
     setcolor(DARKGRAY);
     setfillstyle(SOLID_FILL, DARKGRAY);
-    rectangle(295, 285 - yOffset, 360, 305 - yOffset);
-    floodfill(347, 304 - yOffset, DARKGRAY);
+    rectangle(295 * scaleFactor, (285 - yOffset) * scaleFactor, 360 * scaleFactor, (305 - yOffset) * scaleFactor);
+    floodfill(347 * scaleFactor, (304 - yOffset) * scaleFactor, DARKGRAY);
 
-    line(295, 285 - yOffset, 275, 305 - yOffset);
-    line(275, 305 - yOffset, 295, 305 - yOffset);
-    line(295, 285 - yOffset, 295, 285 - yOffset);
-    floodfill(287, 304 - yOffset, DARKGRAY);
+    line(295 * scaleFactor, (285 - yOffset) * scaleFactor, 275 * scaleFactor, (305 - yOffset) * scaleFactor);
+    line(275 * scaleFactor, (305 - yOffset) * scaleFactor, 295 * scaleFactor, (305 - yOffset) * scaleFactor);
+    line(295 * scaleFactor, (285 - yOffset) * scaleFactor, 295 * scaleFactor, (285 - yOffset) * scaleFactor);
+    floodfill(287 * scaleFactor, (304 - yOffset) * scaleFactor, DARKGRAY);
 
-    line(360, 305 - yOffset, 380, 305 - yOffset);
-    line(380, 305 - yOffset, 360, 285 - yOffset);
-    line(360, 285 - yOffset, 380, 305 - yOffset);
-    floodfill(365, 304 - yOffset, DARKGRAY);
+    line(360 * scaleFactor, (305 - yOffset) * scaleFactor, 380 * scaleFactor, (305 - yOffset) * scaleFactor);
+    line(380 * scaleFactor, (305 - yOffset) * scaleFactor, 360 * scaleFactor, (285 - yOffset) * scaleFactor);
+    line(360 * scaleFactor, (285 - yOffset) * scaleFactor, 380 * scaleFactor, (305 - yOffset) * scaleFactor);
+    floodfill(365 * scaleFactor, (304 - yOffset) * scaleFactor, DARKGRAY);
 }
 
 void drawFlames(int yOffset, float scaleFactor, int rotate) {
     // Body flames
     setcolor(14);
     setfillstyle(1, 14);
-    circle(328, 338 - yOffset, 33 * scaleFactor);
-    floodfill(328, 338 - yOffset, 14);
-    circle(328, 375 - yOffset, 25 * scaleFactor);
-    floodfill(328, 375 - yOffset, 14);
-    circle(328, 405 - yOffset, 15 * scaleFactor);
-    floodfill(328, 405 - yOffset, 14);
+    circle(328 * scaleFactor, (338 - yOffset) * scaleFactor, 33 * scaleFactor);
+    floodfill(328 * scaleFactor, (338 - yOffset) * scaleFactor, 14);
+    circle(328 * scaleFactor, (375 - yOffset) * scaleFactor, 25 * scaleFactor);
+    floodfill(328 * scaleFactor, (375 - yOffset) * scaleFactor, 14);
+    circle(328 * scaleFactor, (405 - yOffset) * scaleFactor, 15 * scaleFactor);
+    floodfill(328 * scaleFactor, (405 - yOffset) * scaleFactor, 14);
 
     // Booster 1 flames
-    circle(293, 325 - yOffset, 20 * scaleFactor);
-    floodfill(293, 325 - yOffset, 14);
-    circle(293, 350 - yOffset, 12 * scaleFactor);
-    floodfill(293, 350 - yOffset, 14);
-    circle(293, 365 - yOffset, 8 * scaleFactor);
-    floodfill(293, 365 - yOffset, 14);
+    circle(293 * scaleFactor, (325 - yOffset) * scaleFactor, 20 * scaleFactor);
+    floodfill(293 * scaleFactor, (325 - yOffset) * scaleFactor, 14);
+    circle(293 * scaleFactor, (350 - yOffset) * scaleFactor, 12 * scaleFactor);
+    floodfill(293 * scaleFactor, (350 - yOffset) * scaleFactor, 14);
+    circle(293 * scaleFactor, (365 - yOffset) * scaleFactor, 8 * scaleFactor);
+    floodfill(293 * scaleFactor, (365 - yOffset) * scaleFactor, 14);
 
     // Booster 2 flames
-    circle(363, 325 - yOffset, 20 * scaleFactor);
-    floodfill(363, 325 - yOffset, 14);
-    circle(363, 350 - yOffset, 12 * scaleFactor);
-    floodfill(363, 350 - yOffset, 14);
-    circle(363, 365 - yOffset, 8 * scaleFactor);
-    floodfill(363, 365 - yOffset, 14);
+    circle(363 * scaleFactor, (325 - yOffset) * scaleFactor, 20 * scaleFactor);
+    floodfill(363 * scaleFactor, (325 - yOffset) * scaleFactor, 14);
+    circle(363 * scaleFactor, (350 - yOffset) * scaleFactor, 12 * scaleFactor);
+    floodfill(363 * scaleFactor, (350 - yOffset) * scaleFactor, 14);
+    circle(363 * scaleFactor, (365 - yOffset) * scaleFactor, 8 * scaleFactor);
+    floodfill(363 * scaleFactor, (365 - yOffset) * scaleFactor, 14);
 }
 
 void drawScene(int yOffset, float scaleFactor) {
@@ -105,14 +104,19 @@ int main() {
     int gd = DETECT, gm;
     initgraph(&gd, &gm, BGI);
 
-    // Initial scene
-    drawScene(0, 1.0);
 
-    // Animation
+    // Initial scene
+    drawScene(i, 0.25);
+
+
+    // Animation loop
     for (i = 1; i <= 330; i += 10) {
-        drawScene(i, 1.0); // Example values for yOffset and scaleFactor
-        delay(100); // Adjust as needed
-        cleardevice();
+	setactivepage(0);
+	drawScene(i, 0.25); // Draw on the back buffer with scaled parameters
+	setfillstyle(SOLID_FILL, LIGHTCYAN);
+	bar(270, 95 - (i-10), 385, 420);
+	setvisualpage(0); // Switch to the back buffer
+	delay(100); // Adjust delay as needed
     }
 
     getch();
