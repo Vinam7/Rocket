@@ -1,6 +1,7 @@
 #include <conio.h>
 #include <graphics.h>
 #include <stdio.h>
+#define TURBOC_GRAPHICS
 #define BGI "C:\\turboc3\\bgi"
 
 void drawRocket(int yOffset, float scaleFactor, int rotate) {
@@ -81,7 +82,7 @@ void drawFlames(int yOffset, float scaleFactor, int rotate) {
     floodfill(363 * scaleFactor, (365 - yOffset) * scaleFactor, 14);
 }
 
-void drawScene(int yOffset, float scaleFactor) {
+void drawScene() {
     // Background
     setfillstyle(SOLID_FILL, LIGHTCYAN);
     floodfill(50, 50, LIGHTCYAN);
@@ -92,29 +93,35 @@ void drawScene(int yOffset, float scaleFactor) {
     rectangle(0, 420, 650, 500);
     floodfill(325, 460, WHITE);
 
-    // Draw Rocket
-    drawRocket(yOffset, scaleFactor, 0);
 
-    // Draw Flames
-    drawFlames(yOffset, scaleFactor, 0);
 }
-
+void hide(int yOffset, float scaleFactor, int rotate)
+{
+  setcolor(LIGHTCYAN);
+    setfillstyle(SOLID_FILL,LIGHTCYAN);
+		bar(270*scaleFactor, (95 - (yOffset-10))*scaleFactor, 385*scaleFactor, 420*scaleFactor);
+}
 int main() {
     int i;
+    float s= 1;
     int gd = DETECT, gm;
     initgraph(&gd, &gm, BGI);
 
 
     // Initial scene
-    drawScene(i, 0.25);
+    drawScene();
 
 
     // Animation loop
     for (i = 1; i <= 330; i += 10) {
 	setactivepage(0);
-	drawScene(i, 0.25); // Draw on the back buffer with scaled parameters
+	  // Draw Rocket
+    drawRocket(i, s, 0);
+    // Draw Flames
+    drawFlames(i, s, 0);
+     // Draw on the back buffer with scaled parameters
 	setfillstyle(SOLID_FILL, LIGHTCYAN);
-	bar(270, 95 - (i-10), 385, 420);
+	hide(i,s,0);
 	setvisualpage(0); // Switch to the back buffer
 	delay(100); // Adjust delay as needed
     }
